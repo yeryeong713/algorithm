@@ -30,3 +30,38 @@ MergeSort(A,p,q)
 
 # floor(a) : a보다 작은 가장 큰 정수
 ```
+
+## 퀵 정렬 (Quick Sort)
+- 문제를 2개의 부분 문제로 분할
+- 각 부분 문제의 크기가 일정하지 않은 형태의 divide and conquer 알고리즘
+  
+- Pivot 선정 방법
+    - 랜덤
+    - 가장 왼쪽 숫자, 중간 숫자, 가장 오른쪽 숫자 중에서 중앙값으로 pivot 결정
+    - Median-of-Medians : 3 등분 후, 각 부분에서 가장 왼쪽 숫자, 중간 숫자, 가장 오른쪽 숫자 중에 중앙값을 찾은 후, 세 중앙값들 중에서 중앙값을 pivot으로 선정
+          
+- 특징
+    - 큰 입력(n)에 대해 가장 좋은 성능(pivot)을 보임
+
+- 시간 복잡도 : 최악의 경우: O(n^2) / 최선의 경우: O(nlogn)
+    - pivot 선택에 의해 결정
+    - 최악의 경우 :  (n-1)+(n-2)+(n-3)+ + 2+1 = n(n-1)/2 = O(n^2)
+    - 최선의 경우
+        - 각 층에서 비교 횟수 : O(n)
+        - O(n) X (층수) = O(n) X logn = O(nlogn)
+
+- 공간 복잡도 : O(n)
+    - 입력을 위한 메모리 공간과 O(1) 크기의 메모리 공간만 사용
+
+- 예제코드
+```
+QuickSort(A, left, right)
+입력: 배열 A[left]~A[right]
+출력: 정렬된 배열 A[left]~A[right]
+
+1. if (left < right) {
+2. 피봇을 A[left]~A[right]에서 선택하고, 피봇을 A[left]와 자리를 바꾼 후, 피봇과 배열의 각 원소를 비교하여 피봇보다 작은 숫자들은 A[left]~A[p-1]으로 옮기고, 피봇보다 큰 숫자들은 A[p+1]~A[right]으로 옮기며, 피봇은 A[p]에 놓는다.
+3. QuickSort(A, left, p-1) // 피봇보다 작은 그룹
+4. QuickSort(A, p+1, right) // 피봇보다 큰 그룹
+}
+```
