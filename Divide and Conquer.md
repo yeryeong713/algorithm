@@ -84,3 +84,15 @@ QuickSort(A, left, right)
         - 선택 알고리즘은 pivot으로 분할하여 범위를 좁혀감
     - 공통점
         - 부분 문제들을 취합하는 과정이 별도로 필요 없음
+- 예제코드
+  ```
+    Selection(A, left, right, k)
+    input: A[left]~A[right]와 k, 단, 1≤k≤|A|, |A|=right-left+1
+    output: A[left]~A[right]에서 k번째 작은 원소
+    
+    1. pivot을 A[left]~A[right]에서 랜덤하게 선택하고, pivot과 A[left]의 자리를 바꾼 후, pivot과 배열의 각 원소를 비교하여 pivot 보다 작은 숫자는 A[left]~A[p-1]로 옮기고, pivot 보다 큰 숫자는 A[p+1]~A[right]로 옮기며, pivot은 A[p]에 놓음
+    2. S = (p-1)-left+1 // S = Small group의 크기
+    3. If (k ≤ S) Selection(A, left, p-1, k) // Small group에서 찾기
+    4. else if (k = S + 1) return A[p] // pivot = k번째 작은 숫자
+    5. else Selection(A, p+1, right, k-S-1) // Large group에서 찾기
+  ```
