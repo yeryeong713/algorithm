@@ -96,3 +96,8 @@ QuickSort(A, left, right)
     4. else if (k = S + 1) return A[p] // pivot = k번째 작은 숫자
     5. else Selection(A, p+1, right, k-S-1) // Large group에서 찾기
   ```
+## 최근접 점의 쌍 찾기
+- 2차원 평면상의 n개의 점이 입력으로 주어질 때, 거리가 가장 가까운 한 쌍의 점을 찾는 문제
+
+- 간단한 방법
+    - 모든 점에 대하여 각각의 두 점 사이의 거리를 계산하여 가장 가까운 점의 쌍을 찾음 > 시간복잡도 : O(n^2)
